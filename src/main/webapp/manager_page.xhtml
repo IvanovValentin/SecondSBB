@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                template="templates/userTemplate.xhtml">
+
+    <ui:define name="content">
+        <p:panel header="Просмотр купленных билетов">
+            <h:form>
+                <div>
+                    <p:messages autoUpdate="true" closable="true"/>
+                </div>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="7">
+                    <h:outputText value="От"/>
+                    <p:calendar id="datetime1" value="#{reportBean.date1}" pattern="yyyy-MM-dd" size="9"
+                                required="true" requiredMessage="поле 'Дата от' не может быть пустым"/>
+                    <h:outputText value="До"/>
+                    <p:calendar id="datetime2" value="#{reportBean.date2}" pattern="yyyy-MM-dd" size="9"
+                                required="true" requiredMessage="поле 'Дата до' не может быть пустым"/>
+                        <p:commandButton action="#{reportBean.findReport}" value="Получить отчет" ajax="false"/>
+
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+
+</ui:composition>
